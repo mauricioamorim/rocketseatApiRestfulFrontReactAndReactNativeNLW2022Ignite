@@ -1,2 +1,4 @@
-/apiRESTfull/node_modules
 /apiRESTfull/build
+/apiRESTfull/node_modules
+/mobileUi/node_modules
+/webUi/node_modules
