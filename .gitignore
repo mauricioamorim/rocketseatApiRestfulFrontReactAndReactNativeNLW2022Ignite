@@ -1,4 +1,5 @@
+/apiRESTfull/build
 /apiRESTfull/node_modules
-/mobileUi/.expo
 /mobileUi/node_modules
-/webUI/node_modules
+/mobileUi/.expo
+/webUi/node_modules
