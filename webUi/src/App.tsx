@@ -6,7 +6,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 
 import {GameBanner} from './components/GameBanner'
 import {CreateAdsenseBunner} from './components/CreateAdsenseBunner'
-import {Input} from './components/Form/input'
+import {Input} from './components/Form/Input'
 
 /* importando css */
 import './styles/main.css';
