@@ -1,5 +1,6 @@
 import { TouchableOpacity, TouchableOpacityProps, ImageBackground, ImageSourcePropType, Text } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+
 import { styles } from './styles';
 import { THEME } from '../../theme';
 
@@ -23,6 +24,7 @@ export function GamingCard({data, ...rest}: Props) {
             style={styles.cover}
             source={{uri:data.bannerUrl}}
         >
+          
           <LinearGradient 
             colors={THEME.COLORS.FOOTER}
             style={styles.footer}
@@ -34,6 +36,7 @@ export function GamingCard({data, ...rest}: Props) {
               {data._count.adsenses} anúncios
             </Text>
           </LinearGradient>
+
         </ImageBackground>
     </TouchableOpacity>
   );
