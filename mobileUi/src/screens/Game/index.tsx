@@ -1,7 +1,6 @@
 import { TouchableOpacity, View, Image, FlatList, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { useRoute } from '@react-navigation/native';
-import { useNavigation } from '@react-navigation/native';
+import { useRoute, useNavigation } from '@react-navigation/native';
 import { Entypo } from '@expo/vector-icons'
 import { useEffect, useState } from 'react';
 
@@ -29,7 +28,6 @@ export function Game() {
   }
 
   async function getDiscordUser(adsId: string) {
-    console.log()
     fetch(`http:192.168.100.73:3333/ads/${adsId}/discord`)
     .then(response=>response.json())
     .then(data=>setDiscordDuoSelected(data.discordId))

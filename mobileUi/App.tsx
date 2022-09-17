@@ -32,7 +32,7 @@ export default function App() {
     getPushNotificationToken();
   });
 
-  // token do meu android virtusl linux ExponentPushToken[J0RmY7KibzXdBJ8m_Eq3Px]
+  // token do meu android virtual linux ExponentPushToken[J0RmY7KibzXdBJ8m_Eq3Px]
   useEffect(()=>{
     getNotificationListener.current = Notifications.addNotificationReceivedListener(notification=>{
       console.log(notification);
