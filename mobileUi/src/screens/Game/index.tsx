@@ -9,12 +9,17 @@ import { GameParams } from '../../@types/navigation';
 import { Background } from '../../components/Background';
 import { Heading } from '../../components/Heading';
 import { DuoCard, DuoCardProps } from '../../components/DuoCard';
+import { DuoMatch } from '../../components/DuoMatch' 
 
 import logoImg from '../../assets/logo-nlw-esports.png';
 import { styles } from './styles';
 import { THEME } from '../../theme';
 
 export function Game() {
+  // Atenção ao setGames e setAdsense(data)
+  const [duos, setDuos] = useState<DuoCardProps[]>([]);
+  const [ discordDuoSelected, setDiscordDuoSelected ] = useState('');
+
   const route = useRoute();
   const game = route.params as GameParams;
   const navigation = useNavigation();
@@ -23,14 +28,21 @@ export function Game() {
     navigation.navigate('home')
   }
 
-  // Atenção ao setGames e setAdsense(data)
-  const [duos, setDuos] = useState<DuoCardProps[]>([]);
+  async function getDiscordUser(adsId: string) {
+    console.log()
+    fetch(`http:192.168.100.73:3333/ads/${adsId}/discord`)
+    .then(response=>response.json())
+    .then(data=>setDiscordDuoSelected(data.discordId))
+    .catch(err=>console.log(err))
+  }
+
   useEffect(()=>{
     fetch(`http:192.168.100.73:3333/games/${game.id}/ads`)
       .then(response=>response.json())
       .then(data=>setDuos(data))
       .catch(err=>console.log(err))
   })
+
 
   return (
     <Background>
@@ -69,7 +81,7 @@ export function Game() {
             renderItem={({ item }) => (
               <DuoCard 
                 data={item} 
-                onConnect={()=>{}}
+                onConnect={()=>getDiscordUser(item.id)}
                 />
             )}
             horizontal
@@ -82,6 +94,12 @@ export function Game() {
               </Text>
             )}
           />
+
+          <DuoMatch 
+            visible={discordDuoSelected.length > 0}
+            onClose={()=>{setDiscordDuoSelected('')}}
+            discord={discordDuoSelected}
+           />
         </SafeAreaView>
     </Background>
   );
