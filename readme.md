@@ -4,5 +4,5 @@ Depois escrevo mais
 
 tem 3 projetos nesse repositório
 -   apiRESTful
--   webUi
--   mobileUi
+-   webUI
+-   mobileUI
